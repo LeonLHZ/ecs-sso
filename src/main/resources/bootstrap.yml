@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://94.191.119.192:8888
+      name: ecs-sso
+      label: master
+      profile: prod
