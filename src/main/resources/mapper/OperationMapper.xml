@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.lhz.provider.dao.OperationMapper" >
+  <resultMap id="BaseResultMap" type="cn.lhz.common.entity.Operation" >
+    <result column="op_id" property="opId" jdbcType="VARCHAR" />
+    <result column="op_name" property="opName" jdbcType="VARCHAR" />
+    <result column="op_description" property="opDescription" jdbcType="VARCHAR" />
+    <result column="op_content" property="opContent" jdbcType="VARCHAR" />
+    <result column="op_create_time" property="opCreateTime" jdbcType="VARCHAR" />
+    <result column="app_id" property="appId" jdbcType="VARCHAR" />
+  </resultMap>
+<insert id="insertOpe" parameterType="cn.lhz.common.entity.Operation">
+  <selectKey resultType="java.lang.String" keyColumn="opId" order="BEFORE">
+    SELECT uuid()
+  </selectKey>
+  INSERT into (op_id,op_name,op_description,op_content,op_create_time,app_id)
+  VALUES (#{opId},#{opName},#{opDescription},#{opContent},#{opCreateTime},#{appId})
+</insert>
+</mapper>
