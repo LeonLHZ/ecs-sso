@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.lhz.provider.dao.EscMapper" >
+<mapper namespace="cn.lhz.sso.mapper.EscMapper" >
   <resultMap id="BaseResultMap" type="cn.lhz.common.entity.Esc" >
     <result column="esc_id" property="escId" jdbcType="VARCHAR" />
     <result column="esc_public_ip" property="escPublicIp" jdbcType="VARCHAR" />
