@@ -31,7 +31,7 @@ public class LoginController
     {
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(@RequestParam(required = false) String url, HttpServletRequest request, Model model)
     {
         String token = CookieUtils.getCookieValue(request, "token");
@@ -45,7 +45,7 @@ public class LoginController
                         User user = MapperUtils.json2pojo(json, User.class);
                             if (StringUtils.isNotBlank(url))
                                 return "redirect:"+url;
-                            model.addAttribute("user",user);
+                            model.addAttribute("admin",user);
 
                     }
                     catch (Exception e)
@@ -55,6 +55,8 @@ public class LoginController
                 }
             }
         }
+        if (StringUtils.isNotBlank(url))
+            model.addAttribute("url",url);
         return "login";
     }
 
@@ -80,5 +82,11 @@ public class LoginController
 
 
         return "redirect:/login";
+    }
+
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public String logOut(HttpServletRequest request,HttpServletResponse response,@RequestParam(required = false)String url, Model model){
+        CookieUtils.deleteCookie(request,response,"token");
+        return login(url,request,model);
     }
 }

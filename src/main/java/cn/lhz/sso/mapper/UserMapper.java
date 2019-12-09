@@ -3,6 +3,7 @@ package cn.lhz.sso.mapper;
 import cn.lhz.common.entity.User;
 import org.apache.ibatis.annotations.Param;
 
+
 public interface UserMapper
 {
     int addUser(User user);

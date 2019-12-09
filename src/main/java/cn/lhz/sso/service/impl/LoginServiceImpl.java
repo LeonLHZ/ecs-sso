@@ -2,8 +2,10 @@ package cn.lhz.sso.service.impl;
 
 import cn.lhz.common.entity.User;
 import cn.lhz.common.utils.*;
+
 import cn.lhz.sso.mapper.UserMapper;
 import cn.lhz.sso.service.LoginService;
+
 import cn.lhz.sso.service.consumer.RedisService;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,8 @@ public class LoginServiceImpl implements LoginService
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
-    private RedisService redisService;
+   @Autowired
+   private RedisService redisService;
 
     public LoginServiceImpl()
     {
